@@ -1,0 +1,28 @@
+programa ejemplo
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  variables
+    fEsq:numero {esta variable...}
+    fTotales:numero
+  comenzar
+    Pos(1,44)
+    derecha
+    fTotales:=0
+    repetir 99
+      mientras (HayFlorEnLaEsquina)
+        tomarFlor
+        fTotales:=fTotales+1
+      mover
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      fTotales:=fTotales+1
+    Informar(fTotales)   
+  fin
+variables
+  R_info: robot1
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+fin
