@@ -1,16 +1,16 @@
-programa Ej1
+programa ejemplo
 areas
-  ciudad: AreaC(1,1,100,100)
+  ciudad: AreaC (1,1,100,100)
 robots
   robot robot1
   comenzar
-  Pos(2,84)
-  si (HayFlorEnLaEsquina)
-    tomarFlor
-fin
+    Pos(2,84)
+    si (HayFlorEnLaEsquina)
+      tomarFlor
+  fin
 variables
-  R-info: robot1
+  R_info: robot1
 comenzar
-  AsignarArea(R-info, ciudad)
-  Iniciar(R-info, 1, 1)
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
 fin
