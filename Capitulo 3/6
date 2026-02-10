@@ -1,0 +1,23 @@
+programa ejemplo
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  variables
+    flor:numero
+  comenzar
+    Pos(1,7)
+    derecha
+    flor:=0
+    mientras (flor < 20) 
+      mientras (flor < 20) &(HayFlorEnLaEsquina)
+        tomarFlor
+        flor:=flor+1
+      mover    
+  fin
+variables
+  R_info: robot1
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+fin
