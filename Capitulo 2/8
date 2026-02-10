@@ -1,0 +1,19 @@
+programa ejemplo
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar 
+    Pos(23,1)
+    mientras (HayPapelEnLaEsquina)
+      mover
+    mientras (HayPapelEnLaBolsa)
+      depositarPapel
+    Informar(PosCa)
+  fin
+variables
+  R_info: robot1
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+fin
