@@ -1,0 +1,46 @@
+programa ej1
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso Rectangulo
+  comenzar
+    repetir 2
+      repetir 3
+        mover
+      derecha   
+      repetir 5
+        mover
+      derecha  
+  fin
+  proceso Rectangulo2
+  comenzar
+    repetir 2
+      repetir 5
+        mover
+      derecha   
+      repetir 3
+        mover
+      derecha  
+  fin
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 2
+      Rectangulo
+      Pos(PosAv+6,PosCa+5)
+      derecha
+      Rectangulo 
+      Pos(PosAv+4,PosCa-5)
+      izquierda
+  fin
+variables
+  R_info: robot1
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+fin
