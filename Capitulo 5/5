@@ -1,0 +1,62 @@
+programa ej1
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso JuntarFlor
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+  proceso JuntarPapel
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+  fin
+  proceso JuntarTodo
+  comenzar
+    JuntarFlor
+    JuntarPapel
+  fin
+  proceso DepositarTodo 
+  comenzar
+    mientras (HayFlorEnLaBolsa)
+      depositarFlor
+    mientras (HayPapelEnLaBolsa)
+      depositarPapel  
+  fin
+  proceso Rectangulo
+  comenzar
+    repetir 2
+      repetir 3
+        JuntarTodo
+        mover
+      derecha  
+      DepositarTodo 
+      repetir 5
+        JuntarTodo
+        mover
+      derecha  
+      DepositarTodo 
+  fin
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 2
+      Rectangulo
+      Pos(PosAv+6,PosCa+5)
+      derecha
+      Rectangulo 
+      Pos(PosAv+4,PosCa-5)
+      izquierda
+  fin
+variables
+  R_info: robot1
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+fin
