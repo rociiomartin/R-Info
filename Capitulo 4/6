@@ -1,0 +1,30 @@
+programa ej6
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  variables
+    papeles,flores:numero
+  comenzar
+    repetir 4
+      repetir 99
+        papeles:=0
+        flores:=0
+        mientras (HayPapelEnLaEsquina)
+          tomarPapel
+          papeles:=papeles+1
+        mientras (HayFlorEnLaEsquina) 
+          tomarFlor
+          flores:=flores+1
+        si (flores = 3) & (papeles = 3)
+          Informar('Avenida ',PosAv)
+          Informar ('y calle',PosCa) 
+        mover
+      derecha   
+  fin
+variables
+  R_info: robot1
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+fin

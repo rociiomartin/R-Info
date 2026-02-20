@@ -4,11 +4,16 @@ areas
 robots
   robot robot1
   comenzar
-    Pos(5,3)
+    Pos(1,45)
     derecha
-    mientras (HayPapelEnLaBolsa) & (PosAv <20)
+    repetir 49
       depositarPapel
       mover
+      depositarFlor
+      mover
+    depositarPapel
+    mover
+    depositarFlor
   fin
 variables
   R_info: robot1
