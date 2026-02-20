@@ -11,8 +11,15 @@ areas
   ciudad: AreaC (1,1,100,100)
 robots
   robot robot1
+  variables
+    lado:numero
   comenzar
-    cuadrado(2)
+    Pos(2,1)
+    lado:=1
+    repetir 5
+      cuadrado(lado)
+      Pos(PosAv+lado,PosCa)
+      lado:=lado+1     
   fin
 variables
   R_info: robot1

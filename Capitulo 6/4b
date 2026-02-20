@@ -1,0 +1,32 @@
+programa ej1
+procesos
+  proceso rectangulo (E ancho : numero; E alto : numero)
+  comenzar
+    repetir 2
+      repetir alto
+        mover
+      derecha
+      repetir ancho
+        mover
+      derecha
+  fin
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  variables
+    ancho,alto:numero
+  comenzar
+    ancho:=1
+    alto:=15
+    repetir 4
+      rectangulo (ancho,alto)
+      alto:=alto-4
+      Pos(PosAv+1,PosCa+2)
+  fin
+variables
+  R_info: robot1
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+fin

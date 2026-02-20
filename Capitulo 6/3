@@ -1,9 +1,12 @@
 programa ej1
 procesos
-  proceso cuadrado (E lado : numero)
+  proceso rectangulo (E ancho : numero; E alto : numero)
   comenzar
-    repetir 4
-      repetir lado
+    repetir 2
+      repetir ancho
+        mover
+      derecha
+      repetir alto
         mover
       derecha
   fin
@@ -11,8 +14,10 @@ areas
   ciudad: AreaC (1,1,100,100)
 robots
   robot robot1
+  variables
+    ancho,alto:numero
   comenzar
-    cuadrado(2)
+    rectangulo (1,3)
   fin
 variables
   R_info: robot1
