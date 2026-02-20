@@ -12,7 +12,9 @@ areas
 robots
   robot robot1
   comenzar
-    Cuadrado
+    repetir 3
+      Cuadrado
+      Pos(PosAv+2,PosCa+2)
   fin
 variables
   R_info: robot1

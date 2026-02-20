@@ -1,18 +1,23 @@
 programa ej1
 procesos
-  proceso Cuadrado
+  proceso Rectangulo
   comenzar
-    repetir 4
-      repetir 2
+    repetir 2
+      repetir 3
         mover
-      derecha     
+      derecha   
+      repetir 5
+        mover
+      derecha  
   fin
 areas
   ciudad: AreaC (1,1,100,100)
 robots
   robot robot1
   comenzar
-    Cuadrado
+    repetir 3
+      Rectangulo
+      Pos(PosAv+1,PosCa+1)
   fin
 variables
   R_info: robot1
