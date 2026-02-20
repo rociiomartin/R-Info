@@ -15,16 +15,6 @@ procesos
         mover
       derecha  
   fin
-  proceso Rectangulo2
-  comenzar
-    repetir 2
-      repetir 5
-        mover
-      derecha   
-      repetir 3
-        mover
-      derecha  
-  fin
 areas
   ciudad: AreaC (1,1,100,100)
 robots
