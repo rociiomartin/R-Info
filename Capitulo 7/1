@@ -36,6 +36,8 @@ robots
       recorrerCalle(calle,p,f)
       calle:=calle+1
     recorrerCalle(calle,p,f)
+    Informar(p)
+    Informar(f)
   fin
 variables
   R_info: robot1
