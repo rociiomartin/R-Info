@@ -1,0 +1,38 @@
+programa ej1
+procesos
+  proceso JuntarFlores(ES f:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      f:=f+1
+  fin
+  proceso recorrerCalle(ES f:numero)
+  comenzar
+    repetir 99
+      JuntarFlores(f)
+      mover
+    JuntarFlores(f)
+  fin
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  variables
+    f:numero
+  comenzar
+    derecha
+    repetir 49
+      f:=0 
+      recorrerCalle(f)
+      si (f>0)
+        Pos(1,PosCa+1)
+        repetir f
+          depositarFlor
+      Pos(1,PosCa+2)
+  fin
+variables
+  R_info: robot1
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+fin

@@ -1,0 +1,58 @@
+programa ejemplo
+procesos
+  proceso JuntarFlores(ES f: numero)
+  comenzar
+    f:=0
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      f:=f+1
+  fin
+  proceso JuntarPapeles(ES p: numero)
+  comenzar
+    p:=0
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      p:=p+1
+  fin
+  proceso contarEsquina(ES ok:boolean; ES comp:numero)
+  variables
+    p,f, agregar:numero
+  comenzar
+    JuntarFlores(f)
+    JuntarPapeles(p)
+    agregar:= (p+1)-f 
+    si (agregar > 0)
+      mientras (HayFlorEnLaBolsa) & (agregar >0)
+        depositarFlor
+        agregar:=agregar-1        
+    si (agregar =0 )
+      comp:=comp+1
+      mover
+    sino
+      ok:=F  
+  fin
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1 
+  variables
+    comp:numero
+    ok:boolean
+  comenzar
+    Pos(9,1)
+    ok:=V
+    comp:=0
+    mientras (ok) & (PosCa <= 100)
+      contarEsquina(ok,comp)
+    si (ok = F)
+      Pos(9,1)
+      Informar(PosAv,PosCa)
+    sino
+      Informar(comp)
+  fin
+variables
+  R_info: robot1
+comenzar
+  AsignarArea(R_info, ciudad)
+  Iniciar(R_info, 1,1)
+fin
