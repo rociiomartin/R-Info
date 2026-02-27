@@ -1,0 +1,62 @@
+programa parcial
+procesos
+  proceso JuntarFlor(ES flores:numero)
+  comenzar
+    flores:=0
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flores:=flores+1
+  fin
+  proceso JuntarPapel(ES papeles:numero)
+  comenzar
+    papeles:=0
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:=papeles+1
+  fin
+  proceso ProcesarEsquina(ES vacias:numero; ES encontradas:numero)
+  variables
+    flores,papeles:numero
+  comenzar
+    si (~HayFlorEnLaEsquina) & (~HayPapelEnLaEsquina)
+      vacias:=vacias+1
+    sino
+      JuntarFlor(flores)
+      JuntarPapel(papeles)
+      si (flores > 15) & (papeles = 5)
+        encontradas:=encontradas+1
+  fin
+  proceso RecorrerCalleImpar(E calle:numero; ES vacias:numero)
+  variables
+    encontradas:numero
+  comenzar
+    Pos(1,calle)
+    encontradas:=0
+    mientras (encontradas < 3) & (PosAv <100)
+      ProcesarEsquina(vacias,encontradas)
+      mover
+    si (encontradas < 3) {ultima avenida}
+      ProcesarEsquina(vacias,encontradas)
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    calle,vacias,i:numero
+  comenzar
+    vacias:=0
+    calle:=1
+    derecha
+    repetir 49
+      RecorrerCalleImpar(calle,vacias)
+      calle:=calle+2
+    RecorrerCalleImpar(calle,vacias)
+    Informar('Total de esquinas vacias' ,vacias)
+  fin
+variables
+  R:robot1
+comenzar
+  AsignarArea(R,ciudad)
+  Iniciar(R,1,1)
+fin
