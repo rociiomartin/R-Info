@@ -1,0 +1,79 @@
+programa ej3
+
+procesos
+
+  proceso JuntarFlor(ES totalFlores:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      totalFlores:=totalFlores+1
+  fin
+
+
+  proceso JuntarPapel(ES totalPapeles:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      totalPapeles:=totalPapeles+1
+  fin
+
+
+  proceso RecorrerLado(E pasos:numero;
+                       ES totalFlores:numero;
+                       ES totalPapeles:numero)
+  comenzar
+    repetir pasos
+      JuntarFlor(totalFlores)
+      JuntarPapel(totalPapeles)
+      mover
+  fin
+
+
+  proceso RecorrerRectangulo(E base:numero;
+                             ES totalFlores:numero;
+                             ES totalPapeles:numero)
+  comenzar
+    repetir 2
+      RecorrerLado(1,totalFlores,totalPapeles)
+      derecha
+      RecorrerLado(base,totalFlores,totalPapeles)
+      derecha
+  fin
+
+
+areas
+  ciudad: AreaC(1,1,100,100)
+
+robots
+  robot robot1
+  variables
+    base,calle,totalFlores,totalPapeles:numero
+  comenzar
+
+    base:=15
+    calle:=1
+    totalFlores:=0
+    totalPapeles:=0
+
+    Pos(1,1)
+
+    repetir 8
+      RecorrerRectangulo(base,totalFlores,totalPapeles)
+
+      calle:=calle+1
+      Pos(1,calle)
+
+      base:=base-2
+
+    Informar("Total flores: ", totalFlores)
+    Informar("Total papeles: ", totalPapeles)
+
+  fin
+
+variables
+  R:robot1
+
+comenzar
+  AsignarArea(R,ciudad)
+  Iniciar(R,1,1)
+fin
