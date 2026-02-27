@@ -1,0 +1,48 @@
+procesos
+  proceso juntarF(ES f: numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      f := f + 1
+  fin
+  proceso juntarP(ES p: numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      p := p + 1
+  fin
+  proceso evaluarEsq(ES contador: numero ; ES vacias: numero)
+  variables
+    f, p: numero
+  comenzar
+    si (~HFELE & ~HPELE)
+      vacias := vacias + 1
+    sino 
+      f := 0
+      p := 0
+      juntarF(f)
+      juntarP(p)
+      si (( f > 15 )&(p = 5))
+        contador := contador + 1
+  fin
+  proceso recorrerCalle(ES vacias: numero)
+  variables
+    encontradas: numero
+  comenzar
+    encontradas := 0
+    evaluarEsq(encontradas, vacias)
+    mientras (encontradas < 3)&(PosAv < 100)
+      mover
+      evaluarEsq(encontradas, vacias)
+  fin
+variables
+  vacias: numero
+comenzar 
+  vacias := 0
+  derecha
+  repetir 49 
+    recorrerCalle(vacias)
+    Pos(1, PosCa + 2)
+    recorrerCalle(vacias)
+  Informar(vacias)
+fin
