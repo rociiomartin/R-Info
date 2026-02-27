@@ -1,12 +1,10 @@
-
 programa ej1
-
 procesos
-  proceso JuntarFlor (Es flores:numero)
+  proceso JuntarFlor (ES flores:numero)
   comenzar
     mientras (HayFlorEnLaEsquina)
-        tomarFlor
-        flores:=flores+1
+      tomarFlor
+      flores:=flores+1
   fin
   proceso recorrerAvenida(E av:numero)
   variables
@@ -18,14 +16,10 @@ procesos
       JuntarFlor(flores)
       mover
     si (flores <= 45)
-      Informar(‘Avenida’, av, " tuvo a lo sumo 45 flores")
-    sino
-      Informar("Avenida ", av, " tuvo mas de 45 flores")
+      Informar(av)
   fin
-
 areas
   ciudad: AreaC(1,1,100,100)
-
 robots
   robot robot1
   variables
@@ -37,7 +31,6 @@ robots
       av:=av+1
     recorrerAvenida(av)
   fin
-
 variables
   R:robot1
 
