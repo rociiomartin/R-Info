@@ -1,0 +1,78 @@
+programa ej2
+
+procesos
+  proceso JuntarFlor(S flores:numero)
+  comenzar
+    flores:=0
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flores:=flores+1
+  fin
+   proceso JuntarPapel(S papeles:numero)
+  comenzar
+    papeles:=0
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:=papeles+1
+  fin
+  proceso contarEsquina(S flores:numero; S papeles:numero)
+  comenzar
+    JuntarFlor(flores)
+    JuntarFlor(papeles)
+    repetir flores
+      depositarFlor
+    repetir papeles
+      depositarPapel
+  fin
+
+  proceso recorrerAvenida(E av:numero; ES esquinas20:numero; ES avMenos60:numero)
+  variables
+    flores,papeles,totalPapeles:numero
+  comenzar
+    Pos(av,1)
+    totalPapeles:=0
+    repetir 99
+      contarEsquina(flores,papeles)
+      si (flores = 20)
+        esquinas20:=esquinas20+1
+      totalPapeles:=totalPapeles+papeles
+      mover
+    {última esquina}
+    contarEsquina(flores,papeles)
+    si (flores = 20)
+      esquinas20:=esquinas20+1
+    totalPapeles:=totalPapeles+papeles
+    si (totalPapeles < 60)
+      avMenos60:=avMenos60+1
+  fin
+
+areas
+  ciudad: AreaC(1,1,100,100)
+
+robots
+  robot robot1
+  variables
+    av,esquinas20,avMenos60:numero
+  comenzar
+    av:=1
+    esquinas20:=0
+    avMenos60:=0
+
+    repetir 99
+      recorrerAvenida(av,esquinas20,avMenos60)
+      av:=av+1
+
+    recorrerAvenida(av,esquinas20,avMenos60)
+
+    Informar("Esquinas con 20 flores: ", esquinas20)
+    Informar("Avenidas con menos de 60 papeles: ", avMenos60)
+
+  fin
+
+variables
+  R:robot1
+
+comenzar
+  AsignarArea(R,ciudad)
+  Iniciar(R,1,1)
+fin
