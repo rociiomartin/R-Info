@@ -1,0 +1,51 @@
+{falta terminar}
+programa ej2
+procesos
+  proceso JuntarFlor(ES flor:numero; ES total:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:=flor+1
+      total:=total+1
+  fin
+  proceso TrasladarFlores(ES total:numero)
+  variables
+    cant,i:numero
+  comenzar
+    cant:=0
+    JuntarFlor(cant,total)
+    si (cant > 0)
+      mover {sube a calle par}
+      repetir cant
+        depositarFlor
+      mover {vuelve a calle impar}
+  fin
+  proceso RecorrerCalleImpar(E calle:numero; ES total:numero)
+  comenzar
+    Pos(1,calle)
+    repetir 99
+      TrasladarFlores(total)
+      mover
+    TrasladarFlores(total)
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    calle,total:numero
+  comenzar
+    total:=0
+    calle:=1
+    repetir 49
+      RecorrerCalleImpar(calle,total)
+      calle:=calle+2
+    RecorrerCalleImpar(calle,total)
+    Informar('Total de flores trasladadas ',total)
+  fin
+variables
+  R:robot1
+comenzar
+  AsignarArea(R,ciudad)
+  Iniciar(R,1,1)
+fin
